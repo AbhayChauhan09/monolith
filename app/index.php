@@ -9,6 +9,10 @@
 
 <h2>Welcome to Monolithic PHP App</h2>
 
+<?php
+echo "CI/CD is working ⚔️";
+?>
+
 <form action="login.php" method="POST">
 
 <input type="text" name="username" placeholder="Username" required>
