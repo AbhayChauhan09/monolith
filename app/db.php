@@ -1,8 +1,8 @@
 <?php
-$host = "localhost";
+$host = "mariadb";
 $user = "root";
-$pass = "";
-$db = "login_app";
+$pass = "root";
+$db = "mydb";
 
 $conn = new mysqli($host, $user, $pass, $db);
 
