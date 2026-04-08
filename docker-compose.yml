@@ -3,7 +3,7 @@ version: '3'
 services:
 
   app:
-    build: ./app
+    image: monolith-app
     container_name: php-app
     volumes:
       - ./app:/var/www/html
