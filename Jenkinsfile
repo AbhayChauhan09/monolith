@@ -3,28 +3,34 @@ pipeline {
 
     stages {
 
-        stage('Clone') {
+        stage('Clone Code') {
             steps {
-                echo 'Cloning done by Jenkins automatically'
+                git branch: 'main', url: 'https://github.com/AbhayChauhan09/monolith.git'
             }
         }
 
-        stage('Build') {
+        stage('Deploy with Docker Compose') {
             steps {
-                echo 'Building application...'
+                sh 'docker-compose down || true'
+                sh 'docker-compose up -d'
             }
         }
+    }
 
-        stage('Test') {
-            steps {
-                echo 'Running tests...'
-            }
+    post {
+        success {
+            emailext (
+                to: 'abhaychauhanrishu@99gmail.com',
+                subject: 'Build SUCCESS: ${JOB_NAME}',
+                body: 'Build completed successfully!'
+            )
         }
-
-        stage('Deploy') {
-            steps {
-                echo 'Deploy stage running...'
-            }
+        failure {
+            emailext (
+                to: 'abhaychauhanrishu99@gmail.com',
+                subject: 'Build FAILED: ${JOB_NAME}',
+                body: 'Build failed. Check Jenkins logs.'
+            )
         }
     }
 }
