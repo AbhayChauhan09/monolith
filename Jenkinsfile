@@ -20,7 +20,7 @@ pipeline {
     post {
         success {
             emailext (
-                to: 'abhaychauhanrishu@99gmail.com',
+                to: 'abhaychauhanrishu99@gmail.com',
                 subject: 'Build SUCCESS: ${JOB_NAME}',
                 body: 'Build completed successfully!'
             )
