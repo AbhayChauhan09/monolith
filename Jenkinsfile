@@ -1,7 +1,7 @@
 pipeline {
     agent { label 'agent' }
 
-    stages {
+    stages { 
 
         stage('Clone Code') {
             steps {
@@ -22,7 +22,7 @@ pipeline {
             emailext (
                 to: 'contraabhay24@gmail.com',
                 subject: 'Build SUCCESS: ${JOB_NAME}',
-                body: 'Build completed successfully!'
+                body: 'Build completed successfully once again!'
             )
         }
         failure {
